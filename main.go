@@ -11,6 +11,7 @@ func main() {
 
 	models.Products = []models.Product{
 		{
+			Id:                    1,
 			ProductKey:            214,
 			ProductSubcategoryKey: 31,
 			ProductName:           "Sport-100 Helmet, Red",
@@ -23,6 +24,7 @@ func main() {
 			ProductPrice:          34.99,
 		},
 		{
+			Id:                    2,
 			ProductKey:            215,
 			ProductSubcategoryKey: 31,
 			ProductName:           "Sport-100 Helmet, Black",

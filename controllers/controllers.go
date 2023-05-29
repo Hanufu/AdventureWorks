@@ -20,10 +20,10 @@ func Produts(w http.ResponseWriter, r *http.Request) {
 
 func ProductId(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	ProductKey := vars["productKey"]
+	Id := vars["id"]
 
 	for _, product := range models.Products {
-		if strconv.Itoa(product.ProductKey) == ProductKey {
+		if strconv.Itoa(product.Id) == Id {
 			json.NewEncoder(w).Encode(product)
 		}
 	}
