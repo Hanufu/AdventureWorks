@@ -11,7 +11,14 @@ import (
 func HandleRequest() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", controllers.Home)
+
 	r.HandleFunc("/products", controllers.Products).Methods("GET")
+	r.HandleFunc("/products/", controllers.Products).Methods("GET")
+
 	r.HandleFunc("/products/{id}", controllers.ProductId).Methods("GET")
+
+	r.HandleFunc("/products", controllers.CriarProduto).Methods("POST")
+	r.HandleFunc("/products/", controllers.CriarProduto).Methods("POST")
+
 	log.Fatal(http.ListenAndServe(":8000", r))
 }

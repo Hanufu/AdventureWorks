@@ -28,3 +28,12 @@ func ProductId(w http.ResponseWriter, r *http.Request) {
 	database.DB.First(&product, id)
 	json.NewEncoder(w).Encode(product)
 }
+
+func CriarProduto(w http.ResponseWriter, r *http.Request) {
+
+	var novoProduto models.Product
+	json.NewDecoder(r.Body).Decode(&novoProduto)
+	database.DB.Create(&novoProduto)
+
+	json.NewEncoder(w).Encode(novoProduto)
+}
