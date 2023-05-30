@@ -37,3 +37,12 @@ func CriarProduto(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(novoProduto)
 }
+
+func DeletaProduto(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var product models.Product
+
+	database.DB.Delete(&product, id)
+	json.NewEncoder(w).Encode(product)
+}
