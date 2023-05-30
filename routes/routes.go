@@ -5,11 +5,14 @@ import (
 	"net/http"
 
 	"github.com/Hanufu/AdventureWorks/controllers"
+	"github.com/Hanufu/AdventureWorks/middleware"
 	"github.com/gorilla/mux"
 )
 
 func HandleRequest() {
 	r := mux.NewRouter()
+	r.Use(middleware.ContentTypeMiddleware)
+
 	r.HandleFunc("/", controllers.Home)
 
 	r.HandleFunc("/products", controllers.Products).Methods("GET")
