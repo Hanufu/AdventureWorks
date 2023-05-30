@@ -1,19 +1,19 @@
-create table product(
-    id                    serial primary key  ,
-    productKey            int  ,
-	productSubcategoryKey int,
-	productName           varchar,
-	productSKU			  varchar,
-	modelName             varchar ,
-	productDescription    varchar ,
-	productColor          varchar ,
-	productSize           varchar ,
-	productStyle          varchar ,
-	productCost           float ,
-	productPrice          float 
+create table products(
+    Id                    serial primary key  ,
+    ProductKey            int  ,
+	ProductSubcategoryKey int,
+	ProductSKU			  varchar,
+	ProductName           varchar,
+	ModelName             varchar ,
+	ProductDescription    varchar ,
+	ProductColor          varchar ,
+	ProductSize           varchar ,
+	ProductStyle          varchar ,
+	ProductCost           float ,
+	ProductPrice          float 
 );
 
-INSERT INTO product (productKey, productSubcategoryKey, productSKU, productName, modelName, productDescription, productColor, productSize, productStyle, productCost, productPrice) VALUES 
+INSERT INTO products (productKey, productSubcategoryKey, productSKU, productName, modelName, productDescription, productColor, productSize, productStyle, productCost, productPrice) VALUES 
 (214, 31, 'HL-U509-R', 'Sport-100 Helmet, Red', 'Sport-100', 'Universal fit, well-vented, lightweight, snap-on visor.', 'Red', 'U', NULL, 13.0863, 34.99),
 (215, 31, 'HL-U509', 'Sport-100 Helmet, Black', 'Sport-100', 'Universal fit, well-vented, lightweight, snap-on visor.', 'Black', 'U', NULL, 12.0278, 33.6442),
 (218, 23, 'SO-B909-M', 'Mountain Bike Socks, M', 'Mountain Bike Socks', 'Combination of natural and synthetic fibers stays dry and provides just the right cushioning.', 'White', 'M', 'U', 3.3963, 9.5),

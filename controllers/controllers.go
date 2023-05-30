@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/Hanufu/AdventureWorks/database"
 	"github.com/Hanufu/AdventureWorks/models"
 	"github.com/gorilla/mux"
 )
@@ -14,8 +15,10 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Home Page")
 }
 
-func Produts(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(models.Products)
+func Products(w http.ResponseWriter, r *http.Request) {
+	var p []models.Product
+	database.DB.Find(&p)
+	json.NewEncoder(w).Encode(p)
 }
 
 func ProductId(w http.ResponseWriter, r *http.Request) {

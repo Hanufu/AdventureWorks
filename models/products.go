@@ -2,16 +2,17 @@ package models
 
 type Product struct {
 	Id                    int     `json:"id"`
-	ProductKey            int     `json:"productKey"`
-	ProductSubcategoryKey int     `json:"productSubcategoryKey"`
-	ProductName           string  `json:"productName"`
-	ModelName             string  `json:"modelName"`
-	ProductDescription    string  `json:"productDescription"`
-	ProductColor          string  `json:"productColor"`
-	ProductSize           string  `json:"productSize"`
-	ProductStyle          string  `json:"productStyle"`
-	ProductCost           float64 `json:"productCost"`
-	ProductPrice          float64 `json:"productPrice"`
+	Productkey            int     `json:"ProductKey"`
+	Productsubcategorykey int     `json:"ProductSubcategoryKey"`
+	Productsku            string  `json:"ProductSKU"`
+	Productname           string  `json:"ProductName"`
+	Modelname             string  `json:"ModelName"`
+	Productdescription    string  `json:"ProductDescription"`
+	Productcolor          string  `json:"ProductColor"`
+	Productsize           string  `json:"ProductSize"`
+	Productstyle          string  `json:"ProductStyle"`
+	Productcost           float64 `json:"ProductCost"`
+	Productprice          float64 `json:"ProductPrice"`
 }
 
 var Products []Product
