@@ -46,3 +46,15 @@ func DeletaProduto(w http.ResponseWriter, r *http.Request) {
 	database.DB.Delete(&product, id)
 	json.NewEncoder(w).Encode(product)
 }
+
+func EditarProduto(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var product models.Product
+
+	database.DB.First(&product, id)
+	json.NewDecoder(r.Body).Decode(&product)
+	database.DB.Save(&product)
+	json.NewEncoder(w).Encode(product)
+
+}

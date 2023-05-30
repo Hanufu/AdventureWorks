@@ -17,6 +17,7 @@ func HandleRequest() {
 
 	r.HandleFunc("/products/{id}", controllers.ProductId).Methods("GET")
 	r.HandleFunc("/products/{id}", controllers.DeletaProduto).Methods("Delete")
+	r.HandleFunc("/products/{id}", controllers.EditarProduto).Methods("Put")
 
 	r.HandleFunc("/products", controllers.CriarProduto).Methods("POST")
 	r.HandleFunc("/products/", controllers.CriarProduto).Methods("POST")
