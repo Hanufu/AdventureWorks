@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strconv"
 
 	"github.com/Hanufu/AdventureWorks/database"
 	"github.com/Hanufu/AdventureWorks/models"
@@ -23,11 +22,9 @@ func Products(w http.ResponseWriter, r *http.Request) {
 
 func ProductId(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	Id := vars["id"]
+	id := vars["id"]
+	var product models.Product
 
-	for _, product := range models.Products {
-		if strconv.Itoa(product.Id) == Id {
-			json.NewEncoder(w).Encode(product)
-		}
-	}
+	database.DB.First(&product, id)
+	json.NewEncoder(w).Encode(product)
 }
