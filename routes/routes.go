@@ -6,6 +6,7 @@ import (
 
 	"github.com/Hanufu/AdventureWorks/controllers"
 	"github.com/Hanufu/AdventureWorks/middleware"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -25,5 +26,5 @@ func HandleRequest() {
 	r.HandleFunc("/products", controllers.CriarProduto).Methods("POST")
 	r.HandleFunc("/products/", controllers.CriarProduto).Methods("POST")
 
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServe(":8000", handlers.CORS(handlers.AllowedOrigins([]string{"*"}))(r)))
 }
